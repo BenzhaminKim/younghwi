@@ -21,7 +21,7 @@
               <ul class="navbar-nav">
                 <a class="navbar-brand" href="{% url 'webapp-home' %}">HOME</a>
                 <li class="nav-item active">
-                  <a class="nav-link" href="{% url 'webapp-note' %}">Notes</a>
+                  <a class="nav-link" href="{% url 'note-list' %}">Notes</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'webapp-about' %}">About</a>
@@ -35,8 +35,10 @@
 
               {% if user.is_authenticated %}
               <li class="nav-item">
-
-                <a class="nav-link" href="{% url 'profile' %}"> <img src="{{ user.profile.image.url }}" class="rounded-circle" alt="" style="width:30px; height:30px;"> Profile</a>
+                <a class="nav-link btn btn-outline-primary mt-1 mb-1" href="{% url 'note-create' %}">Post</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'profile' %}"> <img src="{{ user.profile.image.url }}" class="rounded-circle" alt="" style="width:30px; height:30px;"> {{user.username}}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'logout' %}">Logout</a>
